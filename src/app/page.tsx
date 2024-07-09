@@ -1,4 +1,4 @@
-import CardPassword from "@/components/ui/CardPassword";
+import CardPassword from "@/components/CardPassword";
 
 export default async function HomePage() {
   return <CardPassword />;
