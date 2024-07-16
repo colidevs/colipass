@@ -1,10 +1,21 @@
 "use client";
+import {useState} from "react";
+
 import {Button} from "@/components/ui/button";
 import {Label} from "@/components/ui/label";
 import {Card, CardContent, CardHeader} from "@/components/ui/card";
 
 export default function CardPassword() {
   const password = "Qv#:4dD2E&.sgCHW";
+  const generatePassword = () => {
+    const uuid = self.crypto.randomUUID();
+    const arr = uuid.split("-");
+    const pwd = arr[0] + arr[1];
+
+    return pwd;
+  };
+
+  const [password, setPassword] = useState(generatePassword());
 
   const handleCopy = () => {
     navigator.clipboard.writeText(password);
