@@ -6,7 +6,6 @@ import {Label} from "@/components/ui/label";
 import {Card, CardContent, CardHeader} from "@/components/ui/card";
 
 export default function CardPassword() {
-  const password = "Qv#:4dD2E&.sgCHW";
   const generatePassword = () => {
     const uuid = self.crypto.randomUUID();
     const arr = uuid.split("-");
@@ -16,6 +15,12 @@ export default function CardPassword() {
   };
 
   const [password, setPassword] = useState(generatePassword());
+
+  const handleRegenerate = () => {
+    const newPassword = generatePassword();
+
+    setPassword(newPassword);
+  };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(password);
@@ -39,6 +44,7 @@ export default function CardPassword() {
         <Button
           className="rounded-full bg-sky-500 text-white shadow-md transition-transform ease-in-out hover:scale-110"
           id="regenerate"
+          onClick={handleRegenerate}
         >
           ↻ Regenerate
         </Button>
