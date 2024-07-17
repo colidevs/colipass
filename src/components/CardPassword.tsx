@@ -7,7 +7,7 @@ import {Card, CardContent, CardHeader} from "@/components/ui/card";
 
 export default function CardPassword() {
   const generatePassword = () => {
-    const uuid = self.crypto.randomUUID();
+    const uuid = crypto.randomUUID();
     const arr = uuid.split("-");
     const pwd = arr[0] + arr[1];
 
